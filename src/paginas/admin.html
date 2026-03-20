@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — NexaTech</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="../styles/index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header" id="header">
+  <nav class="nav container">
+    <a href="../index.html" class="nav__logo"><span class="logo-mark">N</span>exaTech</a>
+    <ul class="nav__menu" id="navMenu">
+      <li><a href="../index.html" class="nav__link">Inicio</a></li>
+      <li><a href="catalog.html" class="nav__link">Servicios</a></li>
+      <li><a href="favorites.html" class="nav__link">Favoritos <span class="fav-badge" id="favBadge">0</span></a></li>
+      <li><a href="admin.html" class="nav__link active">Admin</a></li>
+      <li><a href="contact.html" class="nav__link nav__link--cta">Contacto</a></li>
+    </ul>
+    <button class="nav__burger" id="navBurger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<!-- ADMIN LAYOUT -->
+<div class="container admin-layout">
+  <div class="admin-header">
+    <div>
+      <span class="section__tag">// Panel de Gestión</span>
+      <h1>Administrar Servicios</h1>
+    </div>
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <button class="btn btn--ghost btn--sm" id="resetServicesBtn">↺ Restaurar por defecto</button>
+      <button class="btn btn--primary" id="openCreateModal">+ Nuevo Servicio</button>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="pillars" style="margin-bottom:36px;" id="adminStats"></div>
+
+  <!-- TABLE -->
+  <div class="admin-table-wrap">
+    <table class="admin-table" id="adminTable">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+          <th>Destacado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="adminTbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CREATE / EDIT MODAL -->
+<div class="modal-overlay" id="serviceModal">
+  <div class="modal">
+    <div class="modal__header">
+      <h3 class="modal__title" id="modalTitle">Nuevo Servicio</h3>
+      <button class="modal__close" id="closeModal">✕</button>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="mName">Nombre del servicio *</label>
+      <input class="form-control" type="text" id="mName" placeholder="Ej: Desarrollo Web Empresarial" />
+      <div class="form-error" id="mNameErr">El nombre es requerido.</div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="mCategory">Categoría *</label>
+        <select class="form-control" id="mCategory">
+          <option value="">Selecciona...</option>
+          <option>Web</option>
+          <option>Móvil</option>
+          <option>Automatización</option>
+          <option>IA & Data</option>
+          <option>Cloud</option>
+          <option>Seguridad</option>
+          <option>Consultoría</option>
+        </select>
+        <div class="form-error" id="mCategoryErr">La categoría es requerida.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="mPrice">Precio *</label>
+        <input class="form-control" type="text" id="mPrice" placeholder="Ej: Desde $1,500 USD" />
+        <div class="form-error" id="mPriceErr">El precio es requerido.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="mShortDesc">Descripción corta *</label>
+      <input class="form-control" type="text" id="mShortDesc" placeholder="Resumen en 1-2 oraciones" />
+      <div class="form-error" id="mShortDescErr">La descripción corta es requerida.</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="mDesc">Descripción completa *</label>
+      <textarea class="form-control" id="mDesc" placeholder="Descripción detallada del servicio..." style="min-height:100px;"></textarea>
+      <div class="form-error" id="mDescErr">La descripción completa es requerida.</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="mImage">URL de imagen</label>
+      <input class="form-control" type="url" id="mImage" placeholder="https://..." />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="mTags">Tags (separados por coma)</label>
+      <input class="form-control" type="text" id="mTags" placeholder="React, Node.js, API" />
+    </div>
+
+    <div class="form-group" style="display:flex; align-items:center; gap:10px;">
+      <input type="checkbox" id="mFeatured" style="accent-color:var(--accent); width:16px; height:16px;" />
+      <label for="mFeatured" style="font-size:0.9rem; cursor:pointer;">Marcar como servicio destacado</label>
+    </div>
+
+    <div style="display:flex; gap:12px; margin-top:8px;">
+      <button class="btn btn--ghost" id="cancelModal" style="flex:1; justify-content:center;">Cancelar</button>
+      <button class="btn btn--primary" id="saveService" style="flex:1; justify-content:center;">Guardar Servicio</button>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE CONFIRM MODAL -->
+<div class="modal-overlay" id="deleteModal">
+  <div class="modal" style="max-width:400px; text-align:center;">
+    <div style="font-size:2.5rem; margin-bottom:16px;">🗑️</div>
+    <h3 class="modal__title" style="margin-bottom:12px;">¿Eliminar servicio?</h3>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:28px;">Esta acción no se puede deshacer. El servicio será eliminado permanentemente.</p>
+    <div style="display:flex; gap:12px;">
+      <button class="btn btn--ghost" id="cancelDelete" style="flex:1; justify-content:center;">Cancelar</button>
+      <button class="btn btn--danger" id="confirmDelete" style="flex:1; justify-content:center;">Sí, eliminar</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© 2025 NexaTech. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/data.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexaTech — Catálogo de Servicios Tecnológicos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="./styles/index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <nav class="nav container">
+    <a href="index.html" class="nav__logo">
+      <span class="logo-mark">N</span>exaTech
+    </a>
+    <ul class="nav__menu" id="navMenu">
+      <li><a href="index.html" class="nav__link active">Inicio</a></li>
+      <li><a href="paginas/catalog.html" class="nav__link">Servicios</a></li>
+      <li><a href="paginas/favorites.html" class="nav__link">Favoritos <span class="fav-badge" id="favBadge">0</span></a></li>
+      <li><a href="paginas/admin.html" class="nav__link">Admin</a></li>
+      <li><a href="paginas/contact.html" class="nav__link nav__link--cta">Contacto</a></li>
+    </ul>
+    <button class="nav__burger" id="navBurger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg">
+    <div class="hero__grid"></div>
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--2"></div>
+    <div class="hero__orb hero__orb--3"></div>
+  </div>
+  <div class="container hero__content">
+    <div class="hero__badge">✦ Soluciones Digitales de Vanguardia</div>
+    <h1 class="hero__title">
+      Transforma tu<br/>
+      <span class="hero__title--accent">negocio digital</span><br/>
+      con tecnología
+    </h1>
+    <p class="hero__desc">Servicios especializados en desarrollo web, móvil, automatización, IA y más. Llevamos tus ideas al siguiente nivel con precisión y excelencia.</p>
+    <div class="hero__actions">
+      <a href="paginas/catalog.html" class="btn btn--primary">Explorar Servicios</a>
+      <a href="paginas/contact.html" class="btn btn--ghost">Hablar con un experto</a>
+    </div>
+    <div class="hero__stats">
+      <div class="stat"><span class="stat__num">150+</span><span class="stat__label">Proyectos</span></div>
+      <div class="stat__divider"></div>
+      <div class="stat"><span class="stat__num">98%</span><span class="stat__label">Satisfacción</span></div>
+      <div class="stat__divider"></div>
+      <div class="stat"><span class="stat__num">8+</span><span class="stat__label">Años exp.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES HIGHLIGHT -->
+<section class="section" id="featured">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__tag">// Servicios Destacados</span>
+      <h2 class="section__title">Lo que hacemos mejor</h2>
+      <p class="section__sub">Un ecosistema completo de soluciones tecnológicas para escalar tu empresa.</p>
+    </div>
+    <div class="cards-grid" id="featuredCards">
+      <!-- Cards rendered by JS -->
+    </div>
+    <div class="section__cta">
+      <a href="paginas/catalog.html" class="btn btn--outline">Ver catálogo completo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__tag">// Por qué elegirnos</span>
+      <h2 class="section__title">Nuestro diferencial</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar__icon">◈</div>
+        <h3>Metodología ágil</h3>
+        <p>Entregas incrementales con sprints bien definidos, máxima visibilidad en cada etapa del proyecto.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__icon">◉</div>
+        <h3>Tecnología de punta</h3>
+        <p>Siempre actualizados con las últimas herramientas, frameworks y tendencias del mercado global.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__icon">◇</div>
+        <h3>Soporte continuo</h3>
+        <p>Acompañamiento post-lanzamiento, mantenimiento proactivo y evolución constante de tus sistemas.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__icon">◆</div>
+        <h3>Seguridad integrada</h3>
+        <p>Prácticas de desarrollo seguro, pruebas exhaustivas y auditorías regulares de vulnerabilidades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-banner__content">
+      <h2>¿Listo para empezar tu proyecto?</h2>
+      <p>Agenda una consultoría gratuita y recibe una propuesta personalizada en 48 horas.</p>
+      <a href="paginas/contact.html" class="btn btn--primary btn--lg">Agenda ahora →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo"><span class="logo-mark">N</span>exaTech</a>
+        <p>Innovación tecnológica al servicio de tu crecimiento empresarial.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="paginas/catalog.html">Desarrollo Web</a></li>
+          <li><a href="paginas/catalog.html">Apps Móviles</a></li>
+          <li><a href="paginas/catalog.html">Automatización</a></li>
+          <li><a href="paginas/catalog.html">Inteligencia Artificial</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="paginas/catalog.html">Catálogo</a></li>
+          <li><a href="paginas/favorites.html">Favoritos</a></li>
+          <li><a href="paginas/contact.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li>✉ hola@nexatech.co</li>
+          <li>📞 +57 300 000 0000</li>
+          <li>📍 Bogotá, Colombia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 NexaTech. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>
