@@ -1,5 +1,5 @@
 // ============================================================
-// NexaTech — Catalog Page
+// NexaTech — Pagina de Catalogo
 // ============================================================
 let activeCategory = 'Todos';
 let searchQuery = '';

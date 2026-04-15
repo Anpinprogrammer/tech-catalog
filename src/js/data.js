@@ -1,5 +1,5 @@
 // ============================================================
-// NexaTech — Services Data
+// NexaTech — Informacion Servicios 
 // ============================================================
 
 const CATEGORIES = ['Todos', 'Web', 'Móvil', 'Automatización', 'IA & Data', 'Cloud', 'Seguridad', 'Consultoría'];

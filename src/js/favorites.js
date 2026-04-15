@@ -1,5 +1,5 @@
 // ============================================================
-// NexaTech — Favorites Page
+// NexaTech — Pagina Favoritos
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
   renderFavorites();
@@ -38,7 +38,6 @@ function renderFavorites() {
     clearWrap.style.display = 'block';
     services.forEach((svc, i) => {
       const card = buildCard(svc, i * 80);
-      // Override fav button to re-render on removal
       const favBtn = card.querySelector('.card__fav-btn');
       favBtn.addEventListener('click', (e) => {
         e.stopPropagation();

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderStats();
   renderTable();
 
-  // Open create modal
+  // Abre el modal para crear 
   document.getElementById('openCreateModal').addEventListener('click', () => {
     editingId = null;
     clearModalForm();
@@ -19,15 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
     openModal('serviceModal');
   });
 
-  // Close modals
+  // Cierra todos los modales 
   document.getElementById('closeModal').addEventListener('click', () => closeModal('serviceModal'));
   document.getElementById('cancelModal').addEventListener('click', () => closeModal('serviceModal'));
   document.getElementById('cancelDelete').addEventListener('click', () => closeModal('deleteModal'));
 
-  // Save service
+  // Guardar servicio
   document.getElementById('saveService').addEventListener('click', saveService);
 
-  // Confirm delete
+  // Confirmar borrar
   document.getElementById('confirmDelete').addEventListener('click', () => {
     if (deletingId !== null) {
       let services = getServices();
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Reset to defaults
+  // Reiniciar a valores por defecto
   document.getElementById('resetServicesBtn').addEventListener('click', () => {
     if (confirm('¿Restaurar todos los servicios a los valores por defecto? Se perderán los cambios actuales.')) {
       localStorage.removeItem('nexatech_services');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Close on overlay click
+  // Cerrar al click
   ['serviceModal', 'deleteModal'].forEach(id => {
     document.getElementById(id).addEventListener('click', (e) => {
       if (e.target.id === id) closeModal(id);
@@ -122,7 +122,7 @@ function renderTable() {
     tbody.appendChild(tr);
   });
 
-  // Bind edit buttons
+  // Enlace botones de edicion
   tbody.querySelectorAll('[data-edit]').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = parseInt(btn.dataset.edit);
@@ -130,7 +130,7 @@ function renderTable() {
     });
   });
 
-  // Bind delete buttons
+  // Enlace botones de borrar
   tbody.querySelectorAll('[data-delete]').forEach(btn => {
     btn.addEventListener('click', () => {
       deletingId = parseInt(btn.dataset.delete);
@@ -206,14 +206,14 @@ function saveService() {
   };
 
   if (editingId !== null) {
-    // Update existing
+    // Actualizar existente 
     const idx = services.findIndex(s => s.id === editingId);
     if (idx !== -1) {
       services[idx] = { ...services[idx], ...serviceData };
     }
     showToast(`"${serviceData.name}" actualizado`, 'success');
   } else {
-    // Create new
+    // Crear nuevo
     const maxId = services.reduce((max, s) => Math.max(max, s.id), 0);
     services.push({ id: maxId + 1, ...serviceData });
     showToast(`"${serviceData.name}" creado exitosamente`, 'success');
@@ -234,3 +234,4 @@ function closeModal(id) {
   document.getElementById(id).classList.remove('open');
   document.body.style.overflow = '';
 }
+º

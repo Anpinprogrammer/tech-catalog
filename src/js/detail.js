@@ -1,5 +1,5 @@
 // ============================================================
-// NexaTech — Detail Page
+// NexaTech — Pagina de detalles
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(location.search);

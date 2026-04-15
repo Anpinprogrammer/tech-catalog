@@ -1,8 +1,8 @@
 // ============================================================
-// NexaTech — Contact Page
+// NexaTech — Pagina Contacto
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-  // Populate services dropdown
+  // Mostrar menu de servicios
   const serviceSelect = document.getElementById('service');
   if (serviceSelect) {
     getServices().forEach(svc => {
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
       opt.textContent = svc.name;
       serviceSelect.appendChild(opt);
     });
-    // Pre-select from URL params
     const params = new URLSearchParams(location.search);
     const preSelected = params.get('service');
     if (preSelected) serviceSelect.value = preSelected;
@@ -22,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.addEventListener('click', handleSubmit);
   }
 
-  // Real-time validation
+  // Validacion en tiempo real
   ['firstName', 'lastName', 'email', 'message'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('blur', () => validateField(id));
@@ -59,14 +58,14 @@ function clearError(id) {
 }
 
 function handleSubmit() {
-  // Hide alerts
+  // Ocultar las alertas 
   document.getElementById('successAlert').classList.remove('show');
   document.getElementById('errorAlert').classList.remove('show');
 
   const fields = ['firstName', 'lastName', 'email', 'message'];
   const validations = fields.map(f => validateField(f));
 
-  // Terms check
+  // Revision de terminos
   const terms = document.getElementById('terms');
   const termsErr = document.getElementById('termsErr');
   const termsValid = terms && terms.checked;
@@ -80,13 +79,13 @@ function handleSubmit() {
     return;
   }
 
-  // Simulate sending
+  // Simulacion de envio de informacion 
   const btn = document.getElementById('submitBtn');
   btn.textContent = 'Enviando...';
   btn.disabled = true;
 
   setTimeout(() => {
-    // Save to localStorage
+    // Guardar en localStorage
     const submissions = JSON.parse(localStorage.getItem('nexatech_contacts') || '[]');
     submissions.push({
       id: Date.now(),
@@ -101,7 +100,7 @@ function handleSubmit() {
     });
     localStorage.setItem('nexatech_contacts', JSON.stringify(submissions));
 
-    // Reset form
+    // Reestablecer el formulario
     ['firstName', 'lastName', 'email', 'phone', 'message'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.value = '';

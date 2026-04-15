@@ -1,8 +1,8 @@
 // ============================================================
-// NexaTech — Core App Logic
+// NexaTech — Logica principal de la app
 // ============================================================
 
-// ── TOAST NOTIFICATIONS ──
+// ── Notificaciones ──
 function showToast(message, type = 'info') {
   let container = document.querySelector('.toast-container');
   if (!container) {
@@ -21,7 +21,7 @@ function showToast(message, type = 'info') {
   }, 3000);
 }
 
-// ── MOBILE MENU ──
+// ── MENU CELULAR ──
 document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('navBurger');
   const menu   = document.getElementById('navMenu');
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Active nav link
+  // LINK ACTIVO
   const currentPath = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav__link').forEach(link => {
     const linkPath = link.getAttribute('href').split('/').pop();
@@ -48,14 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateFavBadge();
 
-  // Sticky header shadow
+  // SOMBRA HEADER
   window.addEventListener('scroll', () => {
     const header = document.getElementById('header');
     if (header) header.style.boxShadow = scrollY > 20 ? '0 4px 24px rgba(0,0,0,0.4)' : 'none';
   });
 });
 
-// ── CARD BUILDER ──
+// ── CONTRUCTOR TARJETAS ──
 function buildCard(service, animDelay = 0) {
   const fav = isFavorite(service.id);
   const card = document.createElement('div');
